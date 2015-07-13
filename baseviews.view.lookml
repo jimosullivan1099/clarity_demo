@@ -1,19 +1,3 @@
-# - view: baseviews
-# 
-# 
-# 
-# 
-
-
-# # Select the views that should be a part of this model,
-# # and define the joins that connect them together.
-#
-# - base_view: order_items
-#   joins:
-#     - join: orders
-#       foreign_key: order_id
-#     - join: users
-#       foreign_key: orders.user_id
 
 
 - explore: base
@@ -23,7 +7,7 @@
   conditionally_filter: 
     enrollments.start_date: 'before today'
     enrollments.end_date_or_today_date: 'after 3 months ago'
-  access_filter_fields: [agencies.id]
+#  access_filter_fields: [agencies.id]
 
   joins:
     - join: entry_screen
@@ -74,7 +58,6 @@
 
     - join: static_demographics
       from: client_demographics
-#       required_joins: clients
       fields: [id, gender, gender_text, ethnicity, ethnicity_text, ref_client, race , race_text, veteran, veteran_text]
       sql_on: ${clients.id} = ${static_demographics.ref_client}
       
@@ -96,7 +79,6 @@
     - join: service_items
       fields: []
       type: inner
-#       required_joins: client_services
       sql_on: ${service_items.id} = ${client_services.ref_service_item}
 
     - join: services
@@ -117,6 +99,7 @@
       
     - join: client_assessment_custom
       sql_on: ${client_assessment_demographics.id} =${client_assessment_custom.id}
+
 
 
 - explore: population

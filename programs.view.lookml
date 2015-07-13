@@ -156,6 +156,7 @@
     
   - dimension: project_type_code
     label: 'Project Type Code'
+    bypass_suggest_restrictions: true
     sql: fn_getPicklistValueName('program_categories',${ref_category})   #program_categories
 
   - dimension: ref_site_type
