@@ -104,7 +104,7 @@
 
 - explore: population
   label: 'HMIS Population over Time'
-  access_filter_fields: [agencies.id]
+#  access_filter_fields: [agencies.id]
   joins:
    - join: entry_screen
      sql_on: ${population.first_entry_screen_id} = ${entry_screen.id}
